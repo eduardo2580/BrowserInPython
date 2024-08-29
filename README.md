@@ -72,4 +72,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## Acknowledgments
 
 - Built using [PyQt5](https://www.riverbankcomputing.com/software/pyqt/intro) and [PyQtWebEngine](https://www.riverbankcomputing.com/software/pyqtwebengine/intro).
-```
