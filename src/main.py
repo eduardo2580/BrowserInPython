@@ -3,11 +3,9 @@ import sys
 import os
 import venv
 
-
 def install_package(package_name):
     """Installs a package using pip."""
     subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
-
 
 def is_package_installed(package_name):
     """Checks if a package is installed by trying to import it."""
@@ -16,7 +14,6 @@ def is_package_installed(package_name):
         return True
     except subprocess.CalledProcessError:
         return False
-
 
 def create_and_activate_virtualenv(env_name="myenv"):
     """Creates a virtual environment if it doesn't exist and activates it."""
@@ -33,7 +30,6 @@ def create_and_activate_virtualenv(env_name="myenv"):
         print(f"Activated virtual environment '{env_name}'.")
     else:
         print(f"Failed to activate virtual environment '{env_name}'.")
-
 
 def main():
     env_name = "myenv"
@@ -68,45 +64,122 @@ def main():
             self.browser.setZoomFactor(1.25)
 
             self.url_bar = QLineEdit()
-            self.url_bar.setMaximumHeight(35)
-            self.url_bar.setFont(QFont("Arial", 12))
-            self.url_bar.setStyleSheet("border-radius: 10px; padding: 5px;")
+            self.url_bar.setMaximumHeight(40)
+            self.url_bar.setFont(QFont("Roboto", 12))
+            self.url_bar.setStyleSheet("""
+                QLineEdit {
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    padding: 8px;
+                    background: #f5f5f5;
+                }
+                QLineEdit:focus {
+                    border: 1px solid #6200ea;
+                    background: #ffffff;
+                }
+            """)
             self.url_bar.returnPressed.connect(self.navigate_to_url)
 
             self.go_btn = QPushButton("Go")
-            self.go_btn.setMaximumHeight(35)
-            self.go_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.go_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.go_btn.setMaximumHeight(40)
+            self.go_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.go_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #6200ea;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #3700b3;
+                }
+            """)
             self.go_btn.clicked.connect(self.navigate_to_url)
 
             self.back_btn = QPushButton("<")
-            self.back_btn.setMaximumHeight(35)
-            self.back_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.back_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.back_btn.setMaximumHeight(40)
+            self.back_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.back_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #ffffff;
+                    border: 1px solid #6200ea;
+                    color: #6200ea;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+            """)
             self.back_btn.clicked.connect(self.browser.back)
 
             self.forward_btn = QPushButton(">")
-            self.forward_btn.setMaximumHeight(35)
-            self.forward_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.forward_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.forward_btn.setMaximumHeight(40)
+            self.forward_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.forward_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #ffffff;
+                    border: 1px solid #6200ea;
+                    color: #6200ea;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+            """)
             self.forward_btn.clicked.connect(self.browser.forward)
 
             self.reload_btn = QPushButton("Reload")
-            self.reload_btn.setMaximumHeight(35)
-            self.reload_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.reload_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.reload_btn.setMaximumHeight(40)
+            self.reload_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.reload_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #ffffff;
+                    border: 1px solid #6200ea;
+                    color: #6200ea;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+            """)
             self.reload_btn.clicked.connect(self.browser.reload)
 
             self.zoom_in_btn = QPushButton("+")
-            self.zoom_in_btn.setMaximumHeight(35)
-            self.zoom_in_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.zoom_in_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.zoom_in_btn.setMaximumHeight(40)
+            self.zoom_in_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.zoom_in_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #ffffff;
+                    border: 1px solid #6200ea;
+                    color: #6200ea;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+            """)
             self.zoom_in_btn.clicked.connect(self.zoom_in)
 
             self.zoom_out_btn = QPushButton("-")
-            self.zoom_out_btn.setMaximumHeight(35)
-            self.zoom_out_btn.setFont(QFont("Arial", 12, QFont.Bold))
-            self.zoom_out_btn.setStyleSheet("padding: 5px 10px; border-radius: 10px;")
+            self.zoom_out_btn.setMaximumHeight(40)
+            self.zoom_out_btn.setFont(QFont("Roboto", 12, QFont.Bold))
+            self.zoom_out_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #ffffff;
+                    border: 1px solid #6200ea;
+                    color: #6200ea;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+            """)
             self.zoom_out_btn.clicked.connect(self.zoom_out)
 
             self.layout = QVBoxLayout()
@@ -157,7 +230,6 @@ def main():
     app = QApplication([])
     window = WebBrowser()
     app.exec_()
-
 
 if __name__ == "__main__":
     main()
